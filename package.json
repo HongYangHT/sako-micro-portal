@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "eslint": "eslint --ext .js,.vue --fix src build static",
-    "stylelint": "stylelint src/**/*.css src/**/*.scss src/**/*.sass src/**/*.less --fix",
+    "stylelint": "stylelint --cache src/**/*.{html,css,vue,scss,sass,less} --custom-syntax postcss-html --syntax scss --fix",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --color --progress --config build/webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.build.js",
     "analyzer": "cross-env NODE_ENV=production webpack --config build/webpack.config.analyzer.js",
