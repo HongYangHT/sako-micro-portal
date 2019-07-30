@@ -24,7 +24,7 @@ module.exports = [
         options: {
           ident: 'postcss',
           sourceMap: true,
-          plugins: loader => [
+          plugins: () => [
             // 可以配置多个插件
             require('autoprefixer')({
               overrideBrowserslist: [

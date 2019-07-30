@@ -33,7 +33,7 @@ module.exports = [
             options: {
               ident: 'postcss',
               sourceMap: true,
-              plugins: loader => [
+              plugins: () => [
                 // 可以配置多个插件
                 require('autoprefixer')({
                   overrideBrowserslist: [
@@ -95,7 +95,7 @@ module.exports = [
             options: {
               ident: 'postcss',
               sourceMap: true,
-              plugins: loader => [
+              plugins: () => [
                 // 可以配置多个插件
                 // NOTE: new feature should change browsers to overrideBrowserslist
                 require('autoprefixer')({

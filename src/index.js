@@ -3,7 +3,7 @@
  * @LastEditors: sam.hongyang
  * @Description: 微前端工程入口，加载相关的配置文件
  * @Date: 2019-07-19 11:35:35
- * @LastEditTime: 2019-07-26 17:59:07
+ * @LastEditTime: 2019-07-30 10:56:45
  */
 import * as singleSpa from 'single-spa'
 import { registerApp } from '@/micro'
@@ -44,10 +44,10 @@ Vue.use(LoadingBar)
 export function startSingleSpa() {
   let apps = []
   try {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async resolve => {
       window.appConfigs.forEach(async item => {
         // eslint-disable-next-line
-        let app = await SystemJS.import(item);
+        let app = await SystemJS.import(item)
         apps.push(registerApp(app))
       })
       await Promise.all(apps)
@@ -60,13 +60,13 @@ export function startSingleSpa() {
 
 startSingleSpa().then(() => {
   singleSpa.start()
-  window.addEventListener('single-spa:before-routing-event', evt => {
+  window.addEventListener('single-spa:before-routing-event', () => {
     LoadingBar.start()
   })
-  window.addEventListener('single-spa:routing-event', evt => {
+  window.addEventListener('single-spa:routing-event', () => {
     LoadingBar.finish()
   })
-  window.addEventListener('single-spa:no-app-change', evt => {
+  window.addEventListener('single-spa:no-app-change', () => {
     LoadingBar.error()
   })
 })
