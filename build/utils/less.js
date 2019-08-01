@@ -42,7 +42,9 @@ module.exports = [
                   return
                 rule.selectors = rule.selectors.map(
                   s =>
-                    `${/^.ivu/.test(s) ? '' : '.' + packageJson.name + ' '}${s === 'body' ? '' : s}`
+                    `${/^.ivu-tooltip-popper/.test(s) ? '' : '.' + packageJson.name + ' '}${
+                      s === 'body' ? '' : s
+                    }`
                 )
               })
             )
